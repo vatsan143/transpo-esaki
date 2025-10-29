@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <style>
+        .form-element-container {
+            position: relative;
+        }
+
+        input.input-field[type=text],
+        input.input-field[type=password] {
+            padding: 8px 12px !important;
+            display: inline-block;
+            border: 1px solid #ccc;
+        }
+
+        .buttonImage {
+            width: 25px !important;
+            height: 25px !important;
+        }
+
+        /* Pre-loader CSS */
+        .page-loader {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            background: #fff;
+            z-index: 1000;
+        }
+
+        .page-loader .txt {
+            color: #666;
+            text-align: center;
+            top: 30%;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .txt h3 {
+            color: #418bed;
+            font-size: 40px;
+            font-family: "Markazi Text", serif;
+            letter-spacing: 0;
+            margin-top: 20px;
+        }
+
+        .blink_me {
+            animation: blinker 1s linear infinite;
+        }
+        .error-message{
+            font-size: 12px;
+            color: red;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+        @media (min-width: 1024px) {
+            .input-field {
+                margin: 10px 0 !important;
+            }
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+    <title>SIMATS Transport</title>
+</head>
+
+<body onload="hideLoader()" style="background: #fff;">
+    <div class="page-loader">
+        <div class="txt">
+            <img src="img/logo-all.png" class="loader-logo" alt="loader-logo" />
+            <h3>SIMATS TRANSPORT</h3>
+            Loading <span class="blink_me">...</span>
+        </div>
+    </div>
+    <div class="log-header">
+        <h1>SIMATS TRANSPORTS</h1>
+    </div>
+    <div class="login-sec">
+        <div class="login-container">
+            <div class="mb-3 mt-2"><img src="img/logo-all.png" alt="logo" height="100" width="100"></div>
+            <div class="login-header">Login</div>
+            <!-- Login Form with JavaScript validation -->
+            <form id="loginForm" class="log-input">
+
+                <!-- Container for User ID -->
+                <div class="form-element-container">
+                    <input type="text" id="registerNumber" name="registerNumber" class="input-field" autocomplete="off" required>
+                    <label for="registerNumber">Enter Staff ID / Student ID</label>
+                </div>
+
+                <!-- Container for Password -->
+                <div class="form-element-container">
+                    <input type="password" id="pass" name="pass" class="input-field" autocomplete="off" required>
+                    <label for="pass">Enter Password</label>
+                </div>
+                <br>
+                
+                <button type="submit" class="submit-button mb-3"><img class="buttonImage me-0" src="img/key.png" alt="Admin"> Login</button>
+
+                <div class="signup-link">
+                    <p>Do not have an account? <a href="transport_signup.php">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="user-footer">
+        <p class="mb-0">&copy; SIMATS - 2024</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+        function hideLoader() {
+            setTimeout(function() {
+                $('.page-loader').fadeOut('slow');
+            }, 3000);
+        }
+
+        // Login validation logic
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // prevent default form submission
+
+            const user = document.getElementById("registerNumber").value;
+            const pass = document.getElementById("pass").value;
+
+            if(user === "212222060185" && pass === "0185") {
+                window.location.href = "viewPass.html"; // redirect to pass page
+            } else {
+                alert("Invalid Login ID or Password!");
+            }
+        });
+    </script>
+</body>
+
+</html>
